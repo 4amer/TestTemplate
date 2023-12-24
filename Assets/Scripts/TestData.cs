@@ -28,6 +28,6 @@ class TestData
     public int getCurrentScore () { return currentScore; }
     public void setMaxScore(int num) { maxScore = num; }
     public int getMaxScore () { return maxScore; }
-    public void setCurrentQuestion(Question question) { currentQuestion = question }
+    public void setCurrentQuestion(Question question) { currentQuestion = question; }
     public Question getCurrentQuestion() { return currentQuestion; }
 }
