@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-class TestData
+public class TestData
 {
     private int currentCorrectlyAnswers = 0;
     private int questionAmount = 0;
@@ -13,11 +9,13 @@ class TestData
 
     private static TestData testData = null;
     private TestData() { }
-    public static TestData Instance()
+    public static TestData Instance
     {
-        if (testData == null) 
-            testData = new TestData();
-        return testData;
+        get {
+            if (testData == null) 
+                testData = new TestData();
+            return testData;
+        }
     }
 
     public void addCorrectlyAnswers(int num) { currentCorrectlyAnswers += num; }
