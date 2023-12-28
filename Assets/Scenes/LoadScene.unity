@@ -333,6 +333,8 @@ MonoBehaviour:
     windowPrefab: {fileID: 7430352306941976490, guid: ca4ff8153b413374ab85ee4e883df2b1, type: 3}
   - windowsType: 2
     windowPrefab: {fileID: 1636818652923870061, guid: 0dc3b138660235746824cf52062817b8, type: 3}
+  - windowsType: 3
+    windowPrefab: {fileID: 8335551301046195105, guid: 7fd3ab39922bc244eacb9b661392fd1b, type: 3}
   startWindow: 1
 --- !u!1 &613260901
 GameObject:
@@ -378,27 +380,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf85e4940cc2b144a4b3e16c7e1a941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questionAmount:
-  - questionTitle: Quest1
-    answerAmount:
-    - answerText: ans1
-      isCorrectly: 0
-    - answerText: ans2
-      isCorrectly: 0
-    - answerText: ans3
-      isCorrectly: 1
-    - answerText: ans4
-      isCorrectly: 0
-  - questionTitle: Quest2
-    answerAmount:
-    - answerText: ans1
-      isCorrectly: 1
-    - answerText: ans2
-      isCorrectly: 0
-    - answerText: ans3
-      isCorrectly: 0
-    - answerText: ans4
-      isCorrectly: 0
+  _questionAmount:
+  - _questionTitle: Qestion
+    _answerAmount:
+    - _text: Answ1
+      _isCorrectly: 0
+      _score: 0
+    - _text: Answ2
+      _isCorrectly: 0
+      _score: 0
+    - _text: Answ3
+      _isCorrectly: 0
+      _score: 0
+    - _text: Answ4
+      _isCorrectly: 1
+      _score: 1
+  - _questionTitle: Qestion2
+    _answerAmount:
+    - _text: fsafasdf
+      _isCorrectly: 0
+      _score: 0
+    - _text: fregsvfdv
+      _isCorrectly: 1
+      _score: 1
+    - _text: hngfmim
+      _isCorrectly: 0
+      _score: 0
+    - _text: tyukjghj
+      _isCorrectly: 0
+      _score: 0
 --- !u!1 &722130808
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UIManagerObj: {fileID: 572955397}
   TestManagerObj: {fileID: 613260903}
+  GlobalManagerObj: {fileID: 1839850288}
 --- !u!1 &948486484
 GameObject:
   m_ObjectHideFlags: 0

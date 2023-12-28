@@ -5,15 +5,16 @@ using UnityEngine;
 [System.Serializable]
 public class Answer
 {
-    [SerializeField] string answerText = string.Empty;
-    [SerializeField] bool isCorrectly = false;
+    [SerializeField] private string _text = string.Empty;
+    [SerializeField] private bool _isCorrectly = false;
+    [SerializeField] private int _score = 0;
 
-    public string getAnswerText()
-    {
-        return answerText;
-    }
+    public string Text{
+        get { return _text; }}
 
-    public bool getIsCurrectly(){
-        return isCorrectly;
-    }
+    public bool IsCurrectly{
+        get { return _isCorrectly; }}
+
+    public int Score { 
+        get { return _score; }}
 }

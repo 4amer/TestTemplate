@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class Question
 {
-    [SerializeField] private string questionTitle = string.Empty;
-    [SerializeField] private Answer[] answerAmount = new Answer[0];
+    [SerializeField] private string _questionTitle = string.Empty;
+    [SerializeField] private Answer[] _answerAmount = new Answer[0];
 
-    public string getQuestionTitle { get { return questionTitle; } }
-    public Answer[] getAnswers { get { return answerAmount; } }
+    public string QuestionTitle { get { return _questionTitle; } }
+    public Answer[] Answers { get { return _answerAmount; } }
 }

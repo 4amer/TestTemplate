@@ -1,7 +1,9 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.Mesh;
 
@@ -11,10 +13,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] private BaseWindowType[] windowTypes;
     [SerializeField] private EWindows startWindow = new EWindows();
 
-    private GameObject currentWindow;
+    private static EWindows currentWindowType;
+
+    private Dictionary<EWindows, BaseWindow> _activeWindow = new Dictionary<EWindows, BaseWindow>();
+    private Dictionary<EWindows, GameObject> _windowsGameObject = new Dictionary<EWindows, GameObject>();
 
     private void Start()
     {
+        if (currentWindowType != 0) 
+        {
+            startWindow = currentWindowType;
+            currentWindowType = 0;
+        }
         changeWindow(startWindow);
     }
 
@@ -25,7 +35,8 @@ public class UIManager : MonoBehaviour
 
     private void changeWindow(EWindows windowTypeChange)
     {
-        Console.WriteLine("Window change method was emit");
+        if (IsWindowShow(windowTypeChange)) return;
+
         for (int i = 0; i < windowTypes.Length; i++)
         {
             EWindows type = windowTypes[i].getWindowType;
@@ -37,13 +48,30 @@ public class UIManager : MonoBehaviour
                 windowRectTrandform.localScale = new Vector2(1, 1);
                 windowRectTrandform.offsetMin = new Vector2(0,0);
                 windowRectTrandform.offsetMax = new Vector2(0,0);
-                if(currentWindow == null)
+                if (_windowsGameObject.Count != 0)
                 {
-                    currentWindow = window;
-                    return;
+                    Destroy(_windowsGameObject[currentWindowType]);
+
                 }
-                Destroy(currentWindow);
+                _windowsGameObject.Clear();
+                _activeWindow.Clear();
+                _windowsGameObject.Add(windowTypeChange, window);
+                _activeWindow.Add(windowTypeChange, window.GetComponent<BaseWindow>());
+                currentWindowType = windowTypeChange;
+                Debug.Log(currentWindowType);
             }
         }
+    }
+
+    public Boolean IsWindowShow(EWindows windowType)
+    {
+        if (windowType == currentWindowType) return true;
+        return false;
+    }
+
+    public void UpdateWindowData(EWindows windowType, BaseWindowData data)
+    {
+        if (data == null || !IsWindowShow(windowType)) return;
+        _activeWindow[windowType].UpdateWindowData(data);
     }
 }
