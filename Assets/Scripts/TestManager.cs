@@ -1,17 +1,15 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
-using static UnityEngine.Mesh;
 
 public class TestManager : MonoBehaviour
 {
+    [SerializeField] private String _testTitle;
     [SerializeField] private Question[] _questionAmount = new Question[0];
 
     private void Start()
     {
-        TestData.Instance.settQuestionAmount(_questionAmount.Length);
+        GlobalContext.TestData.setTestTitle(_testTitle);
+        GlobalContext.TestData.setQuestionAmount(_questionAmount.Length);
     }
 
     public void startTest()
@@ -47,7 +45,6 @@ public class TestManager : MonoBehaviour
         Boolean isCorrectly = answer.IsCurrectly;
         if (isCorrectly)
         {
-            Debug.Log("Currect Answer!!!");
             GlobalContext.TestData.addCorrectlyAnswers();
             GlobalContext.TestData.addCurrentScore(answer.Score);
         }
@@ -61,9 +58,10 @@ public class TestManager : MonoBehaviour
         if (TestData.CurrentQuestionID >= _questionAmount.Length) 
         {
             GlobalContext.UIManager.setWindow(EWindows.ResultWindow);
+            return;
         }
+        GlobalContext.UIManager.setWindow(EWindows.TestWindow);
         Question question = _questionAmount[TestData.CurrentQuestionID];
         TestData.setCurrentQuestion(question);
-        GlobalContext.GlobalManager.ReloadScene();
     }
 }

@@ -293,6 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 572955396}
   - component: {fileID: 572955397}
+  - component: {fileID: 572955398}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -336,6 +337,21 @@ MonoBehaviour:
   - windowsType: 3
     windowPrefab: {fileID: 8335551301046195105, guid: 7fd3ab39922bc244eacb9b661392fd1b, type: 3}
   startWindow: 1
+  _UIItemAnimation: {fileID: 572955398}
+--- !u!114 &572955398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 572955395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feff732aca67eb849b62134ca3deceea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIItem: {fileID: 6673474855452633995, guid: 979567755af90484b8f8112f3d536635, type: 3}
+  layer: 10
 --- !u!1 &613260901
 GameObject:
   m_ObjectHideFlags: 0
@@ -380,6 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf85e4940cc2b144a4b3e16c7e1a941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _testTitle: "\u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435 \u0442\u0435\u0441\u0442\u0430"
   _questionAmount:
   - _questionTitle: Qestion
     _answerAmount:

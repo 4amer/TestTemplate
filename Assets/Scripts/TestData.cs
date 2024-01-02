@@ -1,14 +1,14 @@
 public class TestData
 {
-    private string _testName = string.Empty;
+    private string _testTitle = "Title text";
 
-    private int currentCorrectlyAnswers = 0;
-    private int questionAmount = 0;
-    private int currentScore = 0;
-    private int maxScore = 0;
+    private int _currentCorrectlyAnswers = 0;
+    private int _questionAmount = 0;
+    private int _currentScore = 0;
+    private int _maxScore = 0;
 
-    private Question currentQuestion = null;
-    private int currentQuestionID = 0;
+    private Question _currentQuestion = null;
+    private int _currentQuestionID = 0;
 
     private static TestData testData = null;
     private TestData() { }
@@ -21,79 +21,84 @@ public class TestData
         }
     }
 
-    public string TestName 
+    public string TestTitle
     { 
-        get {  return _testName; } 
+        get {  return _testTitle; } 
+    }
+
+    public void setTestTitle(string TestTitle)
+    {
+        _testTitle = TestTitle;
     }
 
     public void addCorrectlyAnswers() 
     { 
-        currentCorrectlyAnswers++; 
+        _currentCorrectlyAnswers++; 
     }
 
     public int CorrectlyAnswers
     { 
-        get{ return currentCorrectlyAnswers; } 
+        get{ return _currentCorrectlyAnswers; } 
     }
 
-    public void settQuestionAmount(int num) 
+    public void setQuestionAmount(int num) 
     { 
-        questionAmount = num; 
+        _questionAmount = num; 
     }
 
     public int QuestionAmount
     {
-        get { return questionAmount; }
+        get { return _questionAmount; }
     }
 
     public void addCurrentScore(int num) 
     { 
-        currentScore += num; 
+        _currentScore += num; 
     }
 
     public int CurrentScore 
     { 
-        get { return currentScore; }
+        get { return _currentScore; }
     }
 
     public void setMaxScore(int num) 
     { 
-        maxScore = num; 
+        _maxScore = num; 
     }
 
     public int MaxScore
     { 
-        get { return maxScore; }
+        get { return _maxScore; }
     }
 
     public void setCurrentQuestion(Question question) 
     { 
-        currentQuestion = question;
+        _currentQuestion = question;
     }
 
     public Question CurrentQuestion 
     { 
-        get { return currentQuestion; } 
+        get { return _currentQuestion; } 
     }
 
     public int CurrentQuestionID
     {
-        get { return currentQuestionID; }
+        get { return _currentQuestionID; }
     }
 
     public void NextQuestionID()
     {
-        currentQuestionID++;
+        _currentQuestionID++;
     }
 
     public void ReturnToFirstQuestion()
     {
-        currentQuestionID = 0;
+        _currentQuestionID = 0;
     }
     public void RestartTest()
     {
-        currentQuestionID = 0;
-        currentScore = 0;
-        currentCorrectlyAnswers = 0;
+        _currentQuestionID = 0;
+        _currentScore = 0;
+        _currentCorrectlyAnswers = 0;
     }
 }
