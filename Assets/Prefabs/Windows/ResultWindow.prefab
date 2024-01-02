@@ -92,12 +92,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 38.25
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 256
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
@@ -166,10 +166,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2921515427600412307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.0253682, y: 0.5458536}
-  m_AnchorMax: {x: 0.98541415, y: 0.711}
-  m_AnchoredPosition: {x: 0.09008789, y: 0.5}
-  m_SizeDelta: {x: 0.18009949, y: 1.112503}
+  m_AnchorMin: {x: 0.06781182, y: 0.544}
+  m_AnchorMax: {x: 0.94424725, y: 0.711}
+  m_AnchoredPosition: {x: 0.52108765, y: 1}
+  m_SizeDelta: {x: -1.0242996, y: 0.11249995}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9427362017896804
 CanvasRenderer:
@@ -227,12 +227,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 46.75
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 256
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
@@ -488,8 +488,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.1690979, y: 0.47499847}
+  m_SizeDelta: {x: -22.6517, y: -19.0004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6223356382168923429
 CanvasRenderer:
@@ -547,12 +547,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
+  m_fontSize: 41.2
   m_fontSizeBase: 24
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 256
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512

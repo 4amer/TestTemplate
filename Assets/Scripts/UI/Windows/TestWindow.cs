@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TestWindow : BaseWindowWithData<TestWindowData>
 {
     [SerializeField] private TextMeshProUGUI _title; 
+    [SerializeField] private Image _image;
     [SerializeField] private TextMeshProUGUI[] _answerText;
+    
 
     private void Start()
     {
@@ -23,6 +23,7 @@ public class TestWindow : BaseWindowWithData<TestWindowData>
     {
         base.UpdateWindowData(data);
         _title.text = Data.title;
+        _image.sprite = Data.sprite;
     }
 
     private TestWindowData UpdateData()
@@ -34,6 +35,7 @@ public class TestWindow : BaseWindowWithData<TestWindowData>
         {
             _answerText[i].text = question.Answers[i].Text;
         }
+        newTestWindowData.sprite = question.Sprite;
         return newTestWindowData;
     }
 }

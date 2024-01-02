@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Xml.Serialization;
 using UnityEditor.PackageManager.UI;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class UIManager : MonoBehaviour
 {
@@ -10,28 +11,41 @@ public class UIManager : MonoBehaviour
     [SerializeField] private BaseWindowType[] windowTypes;
     [SerializeField] private EWindows startWindow = new EWindows();
 
-    [SerializeField] private UIItemAnimation _UIItemAnimation;
+    [SerializeField] private UIItemAnimation[] _UIItems;
 
     private static EWindows currentWindowType;
+
+    private Dictionary<String, UIItemAnimation> _uiItem = new Dictionary<string, UIItemAnimation> ();
 
     private Dictionary<EWindows, BaseWindow> _activeWindow = new Dictionary<EWindows, BaseWindow>();
     private Dictionary<EWindows, GameObject> _windowsGameObject = new Dictionary<EWindows, GameObject>();
 
     private void Start()
     {
-        if (currentWindowType != 0) 
+        if (currentWindowType != 0)
         {
             startWindow = currentWindowType;
             currentWindowType = 0;
         }
         changeWindow(startWindow);
-        _UIItemAnimation.Init(canvas);
-        GlobalContext.UIManager.UIAnimations.playAnimationWithAction("Start", GlobalContext.UIManager.UIAnimations.OffObject);
+        for (int i = 0; i < _UIItems.Length; i++)
+        {
+            if (_UIItems[i] == null) continue;
+            _UIItems[i].Init(canvas);
+            _uiItem.Add(_UIItems[i].Name, _UIItems[i]);
+            
+        }
+        UIItemAnimation item =  GlobalContext.UIManager.getUIAnimationsByName("windowChange");
+        item.playAnimationWithAction("Start", item.OffObject);
+        item = GlobalContext.UIManager.getUIAnimationsByName("BG");
+        item.OnObject();
     }
 
     public void setWindow(EWindows windowTypeChange)
     {
-        GlobalContext.UIManager.UIAnimations.playAnimationWithAction("End", () =>
+        UIItemAnimation item = GlobalContext.UIManager.getUIAnimationsByName("windowChange");
+        if (item == null) return;
+        item.playAnimationWithAction("End", () =>
         {
             changeWindow(windowTypeChange);
             GlobalContext.GlobalManager.ReloadScene();
@@ -79,11 +93,9 @@ public class UIManager : MonoBehaviour
         _activeWindow[windowType].UpdateWindowData(data);
     }
 
-    public UIItemAnimation UIAnimations
+    public UIItemAnimation getUIAnimationsByName(String name)
     {
-        get
-        {
-            return _UIItemAnimation;
-        }
+        if(!_uiItem.TryGetValue(name, out UIItemAnimation anim)) return null;
+        return _uiItem[name];
     }
 }

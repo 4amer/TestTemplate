@@ -293,7 +293,6 @@ GameObject:
   m_Component:
   - component: {fileID: 572955396}
   - component: {fileID: 572955397}
-  - component: {fileID: 572955398}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -313,7 +312,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1463916022}
   m_Father: {fileID: 948486485}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &572955397
@@ -337,21 +337,9 @@ MonoBehaviour:
   - windowsType: 3
     windowPrefab: {fileID: 8335551301046195105, guid: 7fd3ab39922bc244eacb9b661392fd1b, type: 3}
   startWindow: 1
-  _UIItemAnimation: {fileID: 572955398}
---- !u!114 &572955398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 572955395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feff732aca67eb849b62134ca3deceea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIItem: {fileID: 6673474855452633995, guid: 979567755af90484b8f8112f3d536635, type: 3}
-  layer: 10
+  _UIItems:
+  - {fileID: 1463916025}
+  - {fileID: 1463916024}
 --- !u!1 &613260901
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,6 +400,7 @@ MonoBehaviour:
     - _text: Answ4
       _isCorrectly: 1
       _score: 1
+    _spreite: {fileID: 21300000, guid: 415998a3ad3d25c498aa0ae10114cca2, type: 3}
   - _questionTitle: Qestion2
     _answerAmount:
     - _text: fsafasdf
@@ -426,6 +415,7 @@ MonoBehaviour:
     - _text: tyukjghj
       _isCorrectly: 0
       _score: 0
+    _spreite: {fileID: 21300000, guid: f4b678ad039b3cb449083e3946e5ea9e, type: 3}
 --- !u!1 &722130808
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,6 +498,85 @@ Transform:
   - {fileID: 722130809}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1463916021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1463916022}
+  - component: {fileID: 1463916025}
+  - component: {fileID: 1463916024}
+  - component: {fileID: 1463916023}
+  m_Layer: 0
+  m_Name: UIItems
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1463916022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463916021}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 572955396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1463916023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463916021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feff732aca67eb849b62134ca3deceea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIItem: {fileID: 0}
+  itemName: questionImage
+  layer: 2
+--- !u!114 &1463916024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463916021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feff732aca67eb849b62134ca3deceea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIItem: {fileID: 6675805782306712253, guid: 7c376109644567b48a6a9961b34e781b, type: 3}
+  itemName: BG
+  layer: 0
+--- !u!114 &1463916025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463916021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feff732aca67eb849b62134ca3deceea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIItem: {fileID: 6673474855452633995, guid: 979567755af90484b8f8112f3d536635, type: 3}
+  itemName: windowChange
+  layer: 10
 --- !u!1 &1646931455
 GameObject:
   m_ObjectHideFlags: 0

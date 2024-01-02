@@ -1,12 +1,13 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.Progress;
 
 public class UIItemAnimation : MonoBehaviour
 {
     [SerializeField] private GameObject UIItem;
-
+    [SerializeField] private String itemName;
     [SerializeField] private int layer;
 
     private Animation _itemAnimator;
@@ -23,14 +24,19 @@ public class UIItemAnimation : MonoBehaviour
         }
         if (UIItem.GetComponent<Animation>() == null)
         {
-            Debug.LogError(UIItem.name + " doesnt have an animator!");
+            Debug.LogError(UIItem.name + " doesnt have an animation!");
+            return;
+        }
+        if (UIItem.GetComponent<AspectRatioFitter>() == null)
+        {
+            Debug.LogError(UIItem.name + " doesnt have an aspect ratio fitter!");
             return;
         }
         RectTransform rectTransform = newUIItem.GetComponent<RectTransform>();
         rectTransform.parent = parant.GetComponent<Transform>();
         rectTransform.localScale = new Vector2(1, 1);
-        rectTransform.offsetMin = new Vector2(0, 0);
-        rectTransform.offsetMax = new Vector2(1, 1);
+        //rectTransform.offsetMin = new Vector2(0, 0);
+        //rectTransform.offsetMax = new Vector2(1, 1);
         rectTransform.SetSiblingIndex(layer);
         newUIItem.SetActive(false);
         _itemAnimator = newUIItem.GetComponent<Animation>();
@@ -52,5 +58,26 @@ public class UIItemAnimation : MonoBehaviour
     public void OffObject()
     {
         newUIItem.SetActive(false);
+    }
+
+    public void OnObject()
+    {
+        newUIItem.SetActive(true);
+    }
+
+    public GameObject getUIItem
+    {
+        get
+        {
+            return UIItem;
+        }
+    }
+
+    public String Name
+    {
+        get
+        {
+            return itemName;
+        }
     }
 }
